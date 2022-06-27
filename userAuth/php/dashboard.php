@@ -9,4 +9,3 @@ else
     echo $_SESSION["email"]." WELCOME TO ZURI TRAINING ". ' <a href="../php/logout.php"> <b> LOGOUT <b> </a>';
     
 ?>
-
