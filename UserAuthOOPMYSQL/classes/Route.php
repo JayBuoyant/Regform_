@@ -1,24 +1,17 @@
 <?php
-include_once 'userAuth.php';
 
 class FormController extends UserAuth {
-    public $fullname;
-    public $email;
-    public $password;
-    public $confirmPassword;
-    public $country;
-    public $gender;
-
-    function __construct ($hostname, $username, $password, $dbname) 
-    {
-        $this->host = "localhost";
-        $this->username = "root";
-        $this->password = " ";
-        $this->dbname = "zuriphp";
+    protected $fullname;
+    protected $email;
+    protected $password;
+    protected $confirmPassword;
+    protected $gender;
+    
+    public function __construct() {
+        $this->db = new Dbh(); 
     }
 
-    protected function handleForm($fullname, $email, $password, $confirmPassword, $country, $gender)
-    {
+    public function handleForm() {
         switch(true) {
             case isset($_POST['register']):
                 //unpack all data for registering
@@ -42,9 +35,9 @@ class FormController extends UserAuth {
                 $this->logout($this->email);
                 break;
             case isset($_POST['delete']):
-                //unpack all data for deleting
-                $this->email = $_POST['email'];
-                $this->deleteUser($this->email);
+                //unpack all data for deleting                
+                $this->id = $_POST['id'];
+                $this->deleteUser($this->id);
                 break;
             case isset($_POST['reset']):
                 //unpack all data for updating password
@@ -59,7 +52,6 @@ class FormController extends UserAuth {
             default:
                 echo 'No form was submitted';
                 break;
+           }
         }
     }
-    }
-}

@@ -1,28 +1,16 @@
 <?php
-class dbh {
-     public $hostname; 
-     public $username; 
-     public $password; 
-     public $dbname;
-     
 
-    function __construct ($hostname, $username, $password, $dbname) 
-    {
-        $this->host = "localhost";
-        $this->username = "root";
-        $this->password = " ";
-        $this->dbname = "zuriphp";
-    }
-}
-
-protected function connect($conn)
-{
-    $conn = new mysqli($this->host, $this->username, $this->password, $this->dbname);
-    or die ('Connection to database Successful!');
+class Dbh {
+    private $hostname = '127.0.0.1';
+    private $username = 'root'; 
+    private $password = '';
+    private $dbname = 'zuriphp'; 
     
-   $result= return $conn;
+
+    protected function connect() {
+        $conn = new mysqli($this->hostname, $this->username, $this->password, $this->dbname);
+        return $conn;
+    }
+    
+
 }
-
-$mysqli_close($conn);
-
-?>
