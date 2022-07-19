@@ -19,6 +19,11 @@
         {{ session('success') }}
     </div>
 @endif
+@if (session('updatesuccessful'))
+    <div class="alert alert-success">
+        {{ session('updatesuccessful') }}
+    </div>
+@endif
     <style class= "form-group" width="" margin= 0 auto></style>
 <form action= "/find_known_user" method = "post">
     @csrf 
