@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -14,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/Editusers', function () {
-    return view('User edited successfully');
+    return view('useredit');
 });
 
 Route::get('/Users', function () {
@@ -24,3 +26,9 @@ Route::get('/Users', function () {
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/createuser', function () {
+    return view('createuser');
+});
+
+Route::post('/createuser',[UserController::class, 'createUser']);
