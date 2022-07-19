@@ -30,5 +30,10 @@ Route::get('/', function () {
 Route::get('/createuser', function () {
     return view('createuser');
 });
+Route::get('/edituser', function () {
+    return view('edituser');
+});
 
 Route::post('/createuser',[UserController::class, 'createUser']);
+Route::post('/edituser',[UserController::class, 'edituser']);
+
