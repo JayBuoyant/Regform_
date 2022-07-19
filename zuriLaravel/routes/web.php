@@ -13,6 +13,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/Editusers', function () {
+    return view('User edited successfully');
+});
+
+Route::get('/Users', function () {
+    return view('hello');
+});
+
 Route::get('/', function () {
-    return view('Hello Laravel');
+    return view('welcome');
 });
