@@ -27,12 +27,23 @@ class UserController extends Controller
         return redirect('/')->with('success', "Account successfully registered.");
     }
 
-    public function edituser(Request $request)
+    public function findKnownUser(Request $request)
     {
         $user = new User;
         $user->id=$request->id;
         $currentuser = User::find($user->id);
         //return $currentuser;
         return view('edituser', ['currentuser'=>$currentuser]);
+    }
+    public function editUser(Request $request, User $user)
+    {
+        //$user = new User;
+        $usertoedit = User::find($request->id);
+        $usertoedit->name=$request->name;
+        $usertoedit->email=$request->email;
+        $usertoedit->phone=$request->phone;
+        $usertoedit->update();
+        
+        return redirect('/find_known_user')->with('success','item updated successfully');
     }
 }

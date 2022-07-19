@@ -14,11 +14,17 @@
     }
 </style>
 <body>
+  @if (session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+@endif
     <style class= "form-group" width="" margin= 0 auto></style>
-<form action= "/edituser" method = "post">
+<form action= "/find_known_user" method = "post">
     @csrf 
   
   <div class="form-group">
+    <h3>ENTER YOUR ID IF YOU KNOW IT INIT </h3>
     <label for="exampleInputPhoneNumber">Enter User ID</label>
     <input type="number" name="id" class="form-control" id="exampleInputPhoneNumber1" placeholder="Enter ID">
   </div>
@@ -29,24 +35,27 @@
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>
 @isset($currentuser)
-<form action= "/createuser" method = "post">
+<form action= "/edituser" method = "post">
     @csrf 
+  <br><br><br><br>
+  <h3>MAKE THE APPROPIATE CHANGES BELOW AND SUBMIT </h3>
   <div class="form-group">
+    <input type="hidden" name="id" value="{{$currentuser->id}}">
     <label for="exampleInputName">Name</label>
-    <input type="text" name="name" class="form-control" id="exampleInputName" aria-describedby="emailHelp" placeholder="Enter name">
+    <input type="text" name="name" value="{{$currentuser->name}}" class="form-control" id="exampleInputName" aria-describedby="emailHelp" placeholder="Enter name">
     <label for="exampleInputEmail1">Email address</label>
-    <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+    <input type="email" name="email" value="{{$currentuser->email}}" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
     <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
   </div>
   <div class="form-group">
     <label for="exampleInputPhoneNumber">PhoneNumber</label>
-    <input type="number" name="phone" class="form-control" id="exampleInputPhoneNumber1" placeholder="Enter phone number">
+    <input type="number" name="phone" value="{{$currentuser->phone}}" class="form-control" id="exampleInputPhoneNumber1" placeholder="Enter phone number">
   </div>
   <!-- <div class="form-check">
     <input type="checkbox" class="form-check-input" id="exampleCheck1">
     <label class="form-check-label" for="exampleCheck1">Check me out</label>
   </div> -->
-  <button type="submit" class="btn btn-primary">Submit</button>
+  <button type="submit" class="btn btn-primary">Submit Changes</button>
 </form>
 @endisset
 

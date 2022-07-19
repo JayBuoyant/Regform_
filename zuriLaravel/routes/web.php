@@ -30,10 +30,11 @@ Route::get('/', function () {
 Route::get('/createuser', function () {
     return view('createuser');
 });
-Route::get('/edituser', function () {
+Route::get('/find_known_user', function () {
     return view('edituser');
 });
 
 Route::post('/createuser',[UserController::class, 'createUser']);
-Route::post('/edituser',[UserController::class, 'edituser']);
+Route::post('/find_known_user',[UserController::class, 'findKnownUser']);
+Route::post('/edituser',[UserController::class, 'editUser']);
 
