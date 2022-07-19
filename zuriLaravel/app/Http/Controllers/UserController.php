@@ -20,18 +20,19 @@ class UserController extends Controller
         $user->email=$request->email;
         $user->phone=$request->phone;
         $user->save();
+        $currentuserid=$user->id;
 
         //auth()->login($user);
         //User::create((array) $request);
 
-        return redirect('/')->with('success', "Account successfully registered.");
+        return redirect('/createuser')->with('success', "Account successfully registered!")->with('id', $currentuserid);
     }
 
     public function findKnownUser(Request $request)
     {
-        $user = new User;
-        $user->id=$request->id;
-        $currentuser = User::find($user->id);
+        //$user = new User;
+        //$user->id=$request->id;
+        $currentuser = User::find($request->id);
         //return $currentuser;
         return view('edituser', ['currentuser'=>$currentuser]);
     }
@@ -45,5 +46,26 @@ class UserController extends Controller
         $usertoedit->update();
         
         return redirect('/find_known_user')->with('updatesuccessful','Item updated successfully');
+    }
+    public function deleteUser(Request $request, User $user)
+    {
+        //$user = new User;
+        $usertodelete = User::find($request->id);
+        
+        $usertodelete->delete();
+        
+        return redirect('/find_known_user')->with('deletesuccessful','Item deleted successfully');
+    }
+    public function showAllUsers()
+    {
+         $users =  User::all();
+         return view('users',['users'=>$users]);
+
+    }
+    public function getUserByID()
+    {
+         $users =  User::all();
+         return view('users',['users'=>$users]);
+
     }
 }

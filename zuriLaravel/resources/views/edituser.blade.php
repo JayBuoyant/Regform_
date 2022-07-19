@@ -24,6 +24,11 @@
         {{ session('updatesuccessful') }}
     </div>
 @endif
+@if (session('deletesuccessful'))
+    <div class="alert alert-success">
+        {{ session('deletesuccessful') }}
+    </div>
+@endif
     <style class= "form-group" width="" margin= 0 auto></style>
 <form action= "/find_known_user" method = "post">
     @csrf 
@@ -43,7 +48,7 @@
 <form action= "/edituser" method = "post">
     @csrf 
   <br><br><br><br>
-  <h3>MAKE THE APPROPIATE CHANGES BELOW AND SUBMIT </h3>
+  <h3>MAKE THE APPROPIATE CHANGES BELOW AND SUBMIT  OR <a href="/deleteuser/{{$currentuser->id}}">DELETE USER</a></h3>
   <div class="form-group">
     <input type="hidden" name="id" value="{{$currentuser->id}}">
     <label for="exampleInputName">Name</label>

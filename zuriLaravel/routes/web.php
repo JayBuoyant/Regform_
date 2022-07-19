@@ -15,17 +15,14 @@ use App\Http\Controllers\UserController;
 |
 */
 
-Route::get('/Editusers', function () {
-    return view('useredit');
-});
 
-Route::get('/Users', function () {
-    return view('hello');
-});
+
+Route::get('/users', [UserController::class, 'showAllUsers']);
 
 Route::get('/', function () {
     return view('welcome');
 });
+
 
 Route::get('/createuser', function () {
     return view('createuser');
@@ -34,7 +31,12 @@ Route::get('/find_known_user', function () {
     return view('edituser');
 });
 
+Route::get('/find_known_user/{id}',[UserController::class, 'findKnownUser']);
+
 Route::post('/createuser',[UserController::class, 'createUser']);
 Route::post('/find_known_user',[UserController::class, 'findKnownUser']);
 Route::post('/edituser',[UserController::class, 'editUser']);
+
+Route::get('/deleteuser/{id}',[UserController::class, 'deleteUser']);
+
 

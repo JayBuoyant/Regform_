@@ -14,7 +14,11 @@
     }
 </style>
 <body>
-    <style class= "form-group" width="" margin= 0 auto></style>
+ @if (session('success') && session('id'))
+    <div class="alert alert-success">
+        {{ session('success') }}  for user with id {{session('id') }} KEEP YOUR ID SAFE
+    </div>
+@endif
 <form action= "/createuser" method = "post">
     @csrf 
   <div class="form-group">
