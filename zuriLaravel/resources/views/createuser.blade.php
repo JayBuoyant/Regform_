@@ -11,6 +11,8 @@
     form {
         width: 500px;
         margin: 0 auto;
+        margin-top: 50px;
+        padding: 50px;
     }
 </style>
 <body>

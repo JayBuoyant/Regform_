@@ -12,6 +12,8 @@
     .tbl{
         width:1000px;
         margin:0 auto;
+        /* padding: 0 auto; */
+
     }
 </style>
 <body>
