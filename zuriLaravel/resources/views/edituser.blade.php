@@ -11,7 +11,6 @@
     form {
         width: 500px;
         margin: 0 auto;
-        padding: 0 auto;
     }
 </style>
 <body>
@@ -35,7 +34,7 @@
     @csrf 
   
   <div class="form-group">
-    <h3>ENTER YOUR ID IF YOU KNOW IT INIT </h3>
+    <h3>ENTER YOUR ID IF YOU KNOW IT </h3>
     <label for="exampleInputPhoneNumber">Enter User ID</label>
     <input type="number" name="id" class="form-control" id="exampleInputPhoneNumber1" placeholder="Enter ID">
   </div>

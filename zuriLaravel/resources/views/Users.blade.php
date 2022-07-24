@@ -34,7 +34,7 @@
       <td>{{$user->name}}</td>
       <td>{{$user->email}}</td>
       <td>{{$user->phone}}</td>
-      <td><a href="/find_known_user/{{$user->id}}">Edit</a></td>
+      <td><a href="/edit_user/{{$user->id}}">Edit</a></td>
       <td><a href="/deleteuser/{{$user->id}}">Delete</a></td>
     </tr>
     @endforeach

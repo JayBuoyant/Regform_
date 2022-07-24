@@ -45,7 +45,7 @@ class UserController extends Controller
         $usertoedit->phone=$request->phone;
         $usertoedit->update();
         
-        return redirect('/find_known_user')->with('updatesuccessful','Item updated successfully');
+        return redirect('/edit_user')->with('updatesuccessful','Item updated successfully');
     }
     public function deleteUser(Request $request, User $user)
     {

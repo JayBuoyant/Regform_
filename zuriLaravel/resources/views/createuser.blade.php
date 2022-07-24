@@ -25,14 +25,14 @@
     @csrf 
   <div class="form-group">
     <label for="exampleInputName">Name</label>
-    <input type="text" name="name" class="form-control" id="exampleInputName" aria-describedby="emailHelp" placeholder="Enter name">
+    <input type="text" name="name" class="form-control" id="exampleInputName" aria-describedby="emailHelp" placeholder="Enter name" required>
     <label for="exampleInputEmail1">Email address</label>
-    <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+    <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" required>
     <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
   </div>
   <div class="form-group">
     <label for="exampleInputPhoneNumber">PhoneNumber</label>
-    <input type="number" name="phone" class="form-control" id="exampleInputPhoneNumber1" placeholder="Enter phone number">
+    <input type="number" name="phone" class="form-control" id="exampleInputPhoneNumber1" placeholder="Enter phone number" required>
   </div>
   <!-- <div class="form-check">
     <input type="checkbox" class="form-check-input" id="exampleCheck1">
